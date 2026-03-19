@@ -12,3 +12,4 @@ C:\Users\israe\OneDrive\Documentos\projetos pessoais\C#\calculadora\obj\Debug\ne
 C:\Users\israe\OneDrive\Documentos\projetos pessoais\C#\calculadora\obj\Debug\net10.0\calculadora.pdb
 C:\Users\israe\OneDrive\Documentos\projetos pessoais\C#\calculadora\obj\Debug\net10.0\calculadora.genruntimeconfig.cache
 C:\Users\israe\OneDrive\Documentos\projetos pessoais\C#\calculadora\obj\Debug\net10.0\ref\calculadora.dll
+C:\Users\israe\OneDrive\Documentos\projetos pessoais\C#\calculadora\obj\Debug\net10.0\calculadora.sourcelink.json

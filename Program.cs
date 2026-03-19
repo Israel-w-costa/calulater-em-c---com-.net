@@ -5,6 +5,8 @@ class Calculadora
   { 
     
    while(true) {
+    Console.Clear();
+
     int num1, num2, solucao;
 
     Console.Write("=======  Bem vindo a Calculadora  ======= \n ");
@@ -40,33 +42,53 @@ class Calculadora
     switch (operacao)
     {
       case '+':
-      solucao = num1 + num2;
+      solucao = Somar(num1,num2);
           Console.WriteLine("\n Adição é " + solucao + "\n");
           break;
       case'-':
-      solucao = num1 - num2;
+      solucao = Subtrair(num1,num2);
           Console.WriteLine("\n Subtração é " + solucao + "\n");
           break;    
       case 'X':
-      solucao = num1 * num2;
+      solucao = Multiplicacao(num1,num2);
           Console.WriteLine("\n Multiplicação é " + solucao + "\n");
           break;    
        case '/':
-       solucao = num1 / num2;
-          if (num2 == 0)
-          {
-            Console.Write("\n Não é possivel dividir por zero");
-          }
-          else
-          {
-            
-          Console.WriteLine("\n Divisão é " + solucao + "\n");
-          }
-          break;   
+    if (num2 == 0)
+    {
+        Console.WriteLine("\nNão é possível dividir por zero\n");
+    }
+    else
+    {
+        Console.WriteLine("\n Divisão é " + Divisao(num1, num2) + "\n");
+    }
+    break;  
       default:
         Console.Write("opção inválida");    
         break;
     }
 }
   }
+
+  static int Somar(int num1, int num2)
+  {
+    return num1 + num2;
+  }
+  static int Subtrair (int num1, int num2)
+  {
+    return num1 - num2;
+  }
+
+  static int Multiplicacao(int num1 , int num2)
+  {
+    return num1 * num2;
+  }
+
+  static int Divisao (int num1, int num2)
+  {
+   
+    return num1 / num2;
+    }
+
+
 }
