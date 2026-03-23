@@ -1,13 +1,22 @@
 ﻿using System;
-class Calculadora
+using System.Net.Mime;
+class Program
 {
   static void Main(String[] args)
   { 
     
+ var operacoes = new Dictionary<char, IOperacao>
+    {
+      {'+', new Somar()},
+      {'-', new Subtrair()},
+      {'X', new Multiplicacao()},
+      {'/', new Dividir()},
+    };
+
    while(true) {
     Console.Clear();
 
-    int num1, num2, solucao;
+    int num1, num2;
 
     Console.Write("=======  Bem vindo a Calculadora  ======= \n ");
     Console.Write("\nDigite um numero para calculo\n");
@@ -33,62 +42,19 @@ class Calculadora
             Console.WriteLine("(0) Sair\n");
     
     
-    char operacao = char.ToUpper( Console.ReadKey().KeyChar);    if (operacao == '0')
+    char operacao = char.ToUpper( Console.ReadKey().KeyChar);    
+    if (operacao == '0')
       {
         break;
       }
       
 
-    switch (operacao)
-    {
-      case '+':
-      solucao = Somar(num1,num2);
-          Console.WriteLine("\n Adição é " + solucao + "\n");
-          break;
-      case'-':
-      solucao = Subtrair(num1,num2);
-          Console.WriteLine("\n Subtração é " + solucao + "\n");
-          break;    
-      case 'X':
-      solucao = Multiplicacao(num1,num2);
-          Console.WriteLine("\n Multiplicação é " + solucao + "\n");
-          break;    
-       case '/':
-    if (num2 == 0)
-    {
-        Console.WriteLine("\nNão é possível dividir por zero\n");
-    }
-    else
-    {
-        Console.WriteLine("\n Divisão é " + Divisao(num1, num2) + "\n");
-    }
-    break;  
-      default:
-        Console.Write("opção inválida");    
-        break;
-    }
+    if (operacoes.TryGetValue(operacao, out var op))
+    Console.WriteLine(op.Executar(num1,num2));
+
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey();
 }
   }
-
-  static int Somar(int num1, int num2)
-  {
-    return num1 + num2;
-  }
-  static int Subtrair (int num1, int num2)
-  {
-    return num1 - num2;
-  }
-
-  static int Multiplicacao(int num1 , int num2)
-  {
-    return num1 * num2;
-  }
-
-  static int Divisao (int num1, int num2)
-  {
-   
-    return num1 / num2;
-    }
-
 
 }
